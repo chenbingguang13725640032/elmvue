@@ -4,6 +4,7 @@
       <div class="app8">654</div>
   </div>
   
+  <div id="app">Apphh12222456</div>
 </template>
 
 <script>
