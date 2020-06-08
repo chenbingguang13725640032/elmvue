@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open",
-    "build":"webpack -p"
+    "build": "webpack -p"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +45,8 @@
     "Android >= 4.4"
   ],
   "dependencies": {
-    "vue": "^2.6.11"
+    "vant": "^2.8.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.2"
   }
 }

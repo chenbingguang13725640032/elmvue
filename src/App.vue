@@ -1,10 +1,7 @@
 <template>
-
-  <div id="app">Apphh12222
-   44   654
+  <div id="app">
+      <router-view></router-view>
   </div>
-  
- 
 </template>
 
 <script>
@@ -23,7 +20,5 @@ export default {
 </script>
 
 <style lang="scss" scope>
-    #app{
-        color: red;
-    }
+   
 </style>
