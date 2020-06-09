@@ -26,5 +26,9 @@ export default {
         align-items: center;
         font-size: .75rem;
         color: white;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 99999;
     }
 </style>

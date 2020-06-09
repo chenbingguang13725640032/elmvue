@@ -52,7 +52,7 @@
 <script>
 import navbar from "../components/navbar.vue";
 export default {
-  name: "home-container",
+  name: "home",
   data() {
     return {
       //当前城市
