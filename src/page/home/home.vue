@@ -14,125 +14,36 @@
         <span>当前定位城市：</span>
         <span>定位不准时，请在城市列表中选择</span>
       </div>
-      <div class="city">
-        <router-link to="/city" tag="span" class="dingwei">佛山</router-link>
+      <router-link class="city" tag="span" :to="`/city?id=${nowcity.id}`">
+        <div class="dingwei">{{nowcity.name}}</div>
         <div class="iconfont icon-youjiantou"></div>
-      </div>
+      </router-link>
     </section>
     <!-- 热门城市 -->
     <section class="hotcity">
       <div class="city-hot">热门城市</div>
       <ul class="city">
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
-        <router-link to="/city" tag="li">上海</router-link>
+        <router-link
+          v-for="item in hotcity"
+          :key="item.id"
+          :to="`/city?id=${item.id}`"
+          tag="li"
+        >{{item.name}}</router-link>
       </ul>
     </section>
     <!-- 城市列表 -->
-    <section class="listcity">
+    <section class="listcity" v-for="item in citylist" :key="item[0]">
       <div class="cityletter">
-        <span>A</span>
-        <span>(按字母排序)</span>
+        <span>{{item[0]}}</span>
+        <span v-if="item[0] == 'A'">(按字母排序)</span>
       </div>
       <ul class="city">
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-      </ul>
-    </section>
-     <!-- 城市列表 -->
-    <section class="listcity">
-      <div class="cityletter">
-        <span>A</span>
-        <span>(按字母排序)</span>
-      </div>
-      <ul class="city">
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-      </ul>
-    </section>
-     <!-- 城市列表 -->
-    <section class="listcity">
-      <div class="cityletter">
-        <span>A</span>
-        <span>(按字母排序)</span>
-      </div>
-      <ul class="city">
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-      </ul>
-    </section>
-     <!-- 城市列表 -->
-    <section class="listcity">
-      <div class="cityletter">
-        <span>A</span>
-        <span>(按字母排序)</span>
-      </div>
-      <ul class="city">
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-      </ul>
-    </section>
-     <!-- 城市列表 -->
-    <section class="listcity">
-      <div class="cityletter">
-        <span>A</span>
-        <span>(按字母排序)</span>
-      </div>
-      <ul class="city">
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-      </ul>
-    </section>
-     <!-- 城市列表 -->
-    <section class="listcity">
-      <div class="cityletter">
-        <span>A</span>
-        <span>(按字母排序)</span>
-      </div>
-      <ul class="city">
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        <router-link tag="li" to="/city">商户号或或或或或</router-link>
-        
+        <router-link
+          tag="li"
+          :to="`/city?id=${items.id}`"
+          v-for="items in item[1]"
+          :key="items.id"
+        >{{items.name}}</router-link>
       </ul>
     </section>
   </div>
@@ -143,10 +54,50 @@ import navbar from "../components/navbar.vue";
 export default {
   name: "home-container",
   data() {
-    return {};
+    return {
+      //当前城市
+      nowcity: {},
+      //热门城市
+      hotcity: [],
+      //城市列表
+      citylist: {}
+    };
   },
-  mmounted() {},
-  methods: {},
+  mounted() {
+    this.getnowcity();
+    this.gethotcity();
+    this.getcitylist();
+  },
+  methods: {
+    //获取当前城市
+    getnowcity() {
+      fetch("https://elm.cangdu.org/v1/cities?type=guess", {
+        method: "GET"
+      })
+        .then(res => res.json())
+        .then(res => {
+          this.nowcity = res;
+        });
+    },
+    //获取热门城市
+    gethotcity() {
+      fetch("https://elm.cangdu.org/v1/cities?type=hot", { method: "GET" })
+        .then(res => res.json())
+        .then(res => {
+          this.hotcity = res;
+        });
+    },
+    //获取城市列表
+    getcitylist() {
+      fetch("https://elm.cangdu.org/v1/cities?type=group", { method: "GET" })
+        .then(res => res.json())
+        .then(res => {
+          this.citylist = Object.entries(res).sort((item1, item2) =>
+            item1[0] < item2[0] ? -1 : 0
+          );
+        });
+    }
+  },
   components: {
     navbar
   }
@@ -155,7 +106,6 @@ export default {
 
 <style lang="scss" scoped>
 .home-container {
-  
   background-color: #f5f5f5;
   // 当前城市
   .nowcity {
@@ -181,11 +131,9 @@ export default {
       line-height: 1.375rem;
       align-items: center;
       padding: 0.225rem;
-      span {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--color);
-      }
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color);
     }
   }
   //热门城市
@@ -213,8 +161,7 @@ export default {
         border-bottom: 1px solid #ccc;
         color: var(--color);
       }
-      li:nth-of-type(4),
-      li:nth-of-type(8) {
+      li:nth-of-type(4n) {
         border-right: none;
       }
     }
@@ -242,12 +189,14 @@ export default {
         text-align: center;
         padding: 0.375rem 0;
         font-size: 0.375rem;
-        border-right: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+      }
+      li:nth-of-type(4n) {
+        border-right: none;
       }
     }
   }

@@ -4,6 +4,7 @@ Vue.use(VueRouter)
 import home from "../page/home/home.vue"
 import login from "../page/login/login.vue"
 import city from "../page/city/city.vue"
+import square from "../page/square/square.vue"
 
 
 let router = new VueRouter({
@@ -11,7 +12,8 @@ let router = new VueRouter({
         { path: "/", redirect: "/home" },
         { path: "/home", component: home },
         { path: "/login", component: login },
-        { path: "/city", component: city }
+        { path: "/city", component: city },
+        { path: "/square", component: square }
     ]
 })
 

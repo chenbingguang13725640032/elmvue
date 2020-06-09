@@ -9,3 +9,12 @@ html, body, #app {
   --color: #3190e8;
   --fail: #9f9f9f;
 }
+
+p{
+  padding: 0;
+  margin: 0;
+}
+
+input,button,textarea{
+  outline: none;
+}
