@@ -30,7 +30,7 @@
     <section class="history">
       <p class="title">搜索历史</p>
       <ul>
-        <router-link tag="li" to="/square" v-for="item in historylist" :key="item.id">
+        <router-link tag="li" :to="`/square?geohash=${item.geohash}`" v-for="item in historylist" :key="item.id">
           <p class="one">{{item.name}}</p>
           <p class="two">{{item.address}}</p>
         </router-link>
