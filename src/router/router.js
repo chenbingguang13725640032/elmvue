@@ -7,6 +7,7 @@ import city from "../page/city/city.vue"
 import square from "../page/square/square.vue"
 import search from "../page/search/search.vue"
 import food from "../page/food/food.vue"
+import shop from "../page/shop/shop.vue"
 
 let router = new VueRouter({
     routes: [
@@ -16,7 +17,8 @@ let router = new VueRouter({
         { path: "/city", component: city },
         { path: "/square", component: square },
         { path: "/search", component: search },
-        { path: "/food", component: food }
+        { path: "/food", component: food },
+        { path: "/shop", component: shop }
     ]
 })
 

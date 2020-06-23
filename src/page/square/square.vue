@@ -23,10 +23,35 @@
         <span>附件商家</span>
       </div>
       <ul class="list">
-        <router-link v-for="item in shoplist" :key="item.id" tag="li">
+        <router-link v-for="item in shoplist" :key="item.id" tag="li" to="/shop">
           <div class="box">
-            <img src="" alt="">
-            
+            <img :src="imgBaseUrl + item.image_path" alt />
+            <div class="box_right">
+              <div class="p1">
+                <p class="p_left">
+                  <span class="card">品牌</span>
+                  <span class="title">效果演示</span>
+                </p>
+                <p class="p_right">
+                  <span class="ticket">保 准 票</span>
+                </p>
+              </div>
+              <div class="p2">
+                <p class="p_left">
+                  <rate></rate>
+                  <span class="score">4.7</span>
+                  <span class="sold">月售601单</span>
+                </p>
+                <p class="p_right">
+                  <span class="bule_card">蜂鸟专送</span>
+                  <span class="buleshadow_card">准时达</span>
+                </p>
+              </div>
+              <div class="p3">
+                <p class="p_left">￥5起送 / 配送费约￥2</p>
+                <div class="p_right">2131.4公里 / 22小时33分钟</div>
+              </div>
+            </div>
           </div>
         </router-link>
       </ul>
@@ -36,6 +61,7 @@
 
 <script>
 import navbar from "../components/navbar.vue";
+import rate from "../components/rate.vue";
 export default {
   name: "square",
   data() {
@@ -47,9 +73,11 @@ export default {
       //食品分类列表
       foodcationlist: [],
       //商铺列表
-      shoplist:[],
+      shoplist: [],
       //获取图片域名
-      imgbaseUrl: "https://fuss10.elemecdn.com"
+      imgbaseUrl: "https://fuss10.elemecdn.com",
+      //图片所在域名地址
+      imgBaseUrl: "https://elm.cangdu.org/img/"
     };
   },
   mounted() {
@@ -83,12 +111,13 @@ export default {
         .then(res => res.json())
         .then(res => {
           this.shoplist = res;
-          console.log(res)
+          console.log(res);
         });
     }
   },
   components: {
-    navbar
+    navbar,
+    rate
   }
 };
 </script>
@@ -166,6 +195,84 @@ export default {
       span {
         font-size: 0.4375rem;
         margin-left: 0.25rem;
+      }
+    }
+    .list {
+      li {
+        font-size: .15rem;
+        .box {
+          display: flex;
+          padding: .25rem .375rem;
+          
+          border-bottom: 1px solid #ccc;
+          img {
+            width:3.125rem;
+            height:3.125rem;
+            object-fit: cover;
+          }
+
+          .box_right {
+            padding-left: .75rem;
+            width: 15rem;
+            .p1 {
+              height: .875rem;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .p_left {
+                display: flex;
+                 align-items: center;
+                .card {
+                  background-color: #ffd930;
+                  height: 100%;
+                  font-weight: bold;
+                }
+
+                .title {
+                  font-weight: bold;
+                }
+              }
+
+              .p_right {
+                .ticket {
+                  color: var(--fail);
+                }
+              }
+            }
+
+            .p2 {
+              display: flex;
+              justify-content: space-between;
+              .p_left {
+                display: flex;
+               
+                rate {
+                }
+                .score{
+                  display: inline-block;
+                }
+                .sold {
+                }
+              }
+
+              .p_right {
+                .bule_card {
+                }
+
+                .buleshadow_card {
+                }
+              }
+            }
+
+            .p3 {
+              .p_left {
+              }
+
+              .p_right {
+              }
+            }
+          }
+        }
       }
     }
   }
