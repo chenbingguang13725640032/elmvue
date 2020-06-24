@@ -1,6 +1,6 @@
 <template>
   <van-rate
-  :value="20"
+  :value=rating
   :size="4"
   allow-half
   color="#ee0a24"
@@ -17,8 +17,13 @@ export default {
             
         }
     },
+    props:{
+      "rating":{
+        type:Number
+      }
+    },
     created(){
-
+    
     },
     methods:{
 

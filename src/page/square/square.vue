@@ -30,7 +30,7 @@
               <div class="p1">
                 <p class="p_left">
                   <span class="card">品牌</span>
-                  <span class="title">效果演示</span>
+                  <span class="title">{{item.name}}</span>
                 </p>
                 <p class="p_right">
                   <span class="ticket">保 准 票</span>
@@ -38,18 +38,18 @@
               </div>
               <div class="p2">
                 <p class="p_left">
-                  <rate></rate>
-                  <span class="score">4.7</span>
-                  <span class="sold">月售601单</span>
+                  <rate :rating=item.rating></rate>
+                  <span class="score">{{item.rating}}</span>
+                  <span class="sold">月售{{item.recent_order_num}}单</span>
                 </p>
                 <p class="p_right">
-                  <span class="bule_card">蜂鸟专送</span>
+                  <span class="bule_card">{{item.delivery_mode.text}}</span>
                   <span class="buleshadow_card">准时达</span>
                 </p>
               </div>
               <div class="p3">
-                <p class="p_left">￥5起送 / 配送费约￥2</p>
-                <div class="p_right">2131.4公里 / 22小时33分钟</div>
+                <p class="p_left">￥{{item.float_minimum_order_amount}}起送 / {{item.piecewise_agent_fee.tips}}</p>
+                <p class="p_right">{{item.distance}} / {{item.order_lead_time}}</p>
               </div>
             </div>
           </div>
@@ -111,7 +111,6 @@ export default {
         .then(res => res.json())
         .then(res => {
           this.shoplist = res;
-          console.log(res);
         });
     }
   },
@@ -183,7 +182,6 @@ export default {
     width: 100%;
     margin-top: 1rem;
     box-shadow: 0 -1px 3px 0 grey;
-
     .title {
       display: flex;
       padding: 0.125rem 0.625rem;
@@ -199,76 +197,91 @@ export default {
     }
     .list {
       li {
-        font-size: .15rem;
+        font-size: 0.15rem;
         .box {
           display: flex;
-          padding: .25rem .375rem;
-          
+          padding: 0.25rem 0.375rem;
           border-bottom: 1px solid #ccc;
           img {
-            width:3.125rem;
-            height:3.125rem;
+            width: 3.125rem;
+            height: 3.125rem;
             object-fit: cover;
           }
-
           .box_right {
-            padding-left: .75rem;
+            padding-left: 0.75rem;
             width: 15rem;
             .p1 {
-              height: .875rem;
+              height: 0.875rem;
               display: flex;
               justify-content: space-between;
               align-items: center;
               .p_left {
                 display: flex;
-                 align-items: center;
+                align-items: center;
                 .card {
                   background-color: #ffd930;
                   height: 100%;
                   font-weight: bold;
                 }
-
                 .title {
                   font-weight: bold;
                 }
               }
-
               .p_right {
                 .ticket {
                   color: var(--fail);
                 }
               }
             }
-
             .p2 {
+              margin-top: .125rem;
               display: flex;
               justify-content: space-between;
               .p_left {
                 display: flex;
-               
-                rate {
+                align-items: center;
+                font-size: 0.15rem;
+                /deep/ .van-rate {
+                  width: 2.35rem;
+                  .van-rate__icon--full{
+                    color: #ff9a0d !important;
+                  }
                 }
-                .score{
+                .score {
                   display: inline-block;
                 }
                 .sold {
                 }
               }
-
               .p_right {
-                .bule_card {
+                display: flex;
+                justify-content: space-around;
+                span {
+                  display: inline-block;
                 }
+                .bule_card {
+                  background-color: #3190e8;
+                  color: white;
+                  padding: 0 .125rem;
+                  margin-right: .1rem;
 
+                }
                 .buleshadow_card {
+                  color: #3190e8;
+                  border: 1px solid #3190e8;
                 }
               }
             }
-
             .p3 {
+              margin-top: .25rem;
+              display: flex;
+              justify-content: space-between;
               .p_left {
+                flex:3;
+               
               }
-
               .p_right {
+               flex:2;
               }
             }
           }
